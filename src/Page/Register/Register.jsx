@@ -70,7 +70,7 @@ const Register = () => {
       <div className="hero min-h-screen bg-base-200 dark:bg-slate-700 dark:text-slate-100">
         <div className="hero-content  flex-col lg:flex-row-reverse ">
           <div className="text-center lg:text-left">
-            <img  src={loginPic} className="h-[600px]" alt="login img" />
+            <img  src={loginPic} className="h-96 md:h-[600px]" alt="login img" />
 
           </div>
           <div className="card flex-shrink-0 w-full bg-blue-200  py-5 max-w-sm shadow-2xl  dark:bg-slate-700 dark:text-slate-100 dark:border-blue-600 border-2">

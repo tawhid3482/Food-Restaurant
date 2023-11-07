@@ -36,6 +36,7 @@ const Order = () => {
       Email,
       date,
       foodImage,
+      
     };
 
     console.log(PurchaseFood);

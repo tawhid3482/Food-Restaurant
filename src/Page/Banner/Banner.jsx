@@ -5,7 +5,7 @@ const Banner = () => {
           className="hero h-[450px]"
           style={{
             backgroundImage:
-              "url(https://thumbs.dreamstime.com/b/waitress-serving-food-to-visitors-european-positive-plates-young-couple-table-indoor-48070190.jpg)",
+              "url(https://img.freepik.com/premium-photo/waiter-serving-motion-duty-restaurant-waiter-carries-dishes_109285-5787.jpg?w=2000)",
             backgroundSize: "cover", // Add this line to make the image cover the container
           }}
         >

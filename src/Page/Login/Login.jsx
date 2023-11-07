@@ -43,7 +43,7 @@ const Login = () => {
           <div className="text-center lg:text-left">
             <img
               src={loginPic}
-              className="h-[600px] "
+              className="h-96 md:h-[600px] "
               alt="login img"
             />
           </div>

@@ -22,7 +22,7 @@ const FoodServiceDetails = ({ items }) => {
 
   return (
     <div>
-      <div className="card card-compact md:w-80 lg:w-96 h-[450px] bg-base-200  dark:bg-slate-700 dark:text-slate-100 shadow-xl">
+      <div className="card card-compact w-full md:w-80 lg:w-96 h-[450px] bg-base-200  dark:bg-slate-700 dark:text-slate-100 shadow-xl">
         <figure>
           <img src={foodImage} className="w-full" alt="img" />
         </figure>

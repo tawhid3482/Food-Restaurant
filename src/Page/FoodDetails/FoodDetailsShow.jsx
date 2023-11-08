@@ -19,11 +19,11 @@ const FoodDetailsShow = ({ productsDetails }) => {
       <Helmet>
         <title>Pepper-Food Details</title>
       </Helmet>
-      <div className="card lg:card-side bg-base-100 shadow-xl dark:bg-slate-700 dark:text-slate-100">
-        <figure className="w-2/3">
-          <img src={foodImage} className="w-2/3" alt="Album" />
+      <div className="card w-full  lg:card-side bg-base-100 shadow-xl dark:bg-slate-700 dark:text-slate-100">
+        <figure className= "w-full md:w-2/3">
+          <img src={foodImage} className="w-2/3 " alt="Album" />
         </figure>
-        <div className="card-body w-1/3">
+        <div className="card-body w-full  lg:w-1/3">
           <h2 className="card-title text-3xl">{foodName}</h2>
           <h2 className="card-title text-3xl">{foodCategory}</h2>
 

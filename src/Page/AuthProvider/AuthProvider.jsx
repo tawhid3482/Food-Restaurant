@@ -1,60 +1,82 @@
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import { createContext,  useEffect,  useState } from "react";
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
+import { createContext, useEffect, useState } from "react";
 import auth from "../../Firebase/Firebase.Config";
+import axios from "axios";
 
-export const AuthContext = createContext(null)
-const googleProvider = new GoogleAuthProvider()
-const AuthProvider = ({children}) => {
-    const [user,setUser]= useState({})
-    const [loading,setLoading]=useState(true)
+export const AuthContext = createContext(null);
+const googleProvider = new GoogleAuthProvider();
+const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
 
-    const loginGoogle =()=>{
-        setLoading(true)
-        return signInWithPopup(auth,googleProvider)
-    }
+  const loginGoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
 
-    const createUserEmail = (email,password)=>{
-        setLoading(true)
-        return createUserWithEmailAndPassword(auth,email,password)
-    }
-    const loginByemail = (email,password)=>{
-        setLoading(true)
-        return signInWithEmailAndPassword(auth,email,password)
-    }
-    const userUpdate =(name,photo)=>{
-        return updateProfile(auth.currentUser,{
-            displayName:name, photoURL: photo
+  const createUserEmail = (email, password) => {
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+  const loginByemail = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+  const userUpdate = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
+
+  useEffect(() => {
+    const Unsubcribe = onAuthStateChanged(auth, (user) => {
+        const userEmail = user?.email || user?.email
+        const loggedUser = {email:userEmail}
+
+      setUser(user);
+      setLoading(false);
+      if(user){
+        axios.post('http://localhost:5000/jwt' , loggedUser, {withCredentials:true})
+        .then(res=> {
+            console.log('token response', res.data)
         })
-    }
-
-    useEffect(()=>{
-        const Unsubcribe = onAuthStateChanged(auth, (user)=>{
-            setUser(user)
-            setLoading(false)
+      }
+      else{
+        axios.post('http://localhost:5000/logout',loggedUser,{withCredentials:true})
+        .then(res => {
+            console.log(res.data)
         })
-        return ()=>{
-            Unsubcribe()
-        }
-    },[])
+      }
+    });
+    return () => {
+      Unsubcribe();
+    };
+  }, []);
 
-
-const logOut = ()=>{
-    return signOut(auth)
-}
-    const authInfo = {
-        user,
-        loading,
-        loginGoogle,
-        createUserEmail,
-        loginByemail,
-        logOut,
-        userUpdate
-    }
-    return (
-        <AuthContext.Provider value={authInfo}>
-            {children}
-        </AuthContext.Provider>
-    );
+  const logOut = () => {
+    return signOut(auth);
+  };
+  const authInfo = {
+    user,
+    loading,
+    loginGoogle,
+    createUserEmail,
+    loginByemail,
+    logOut,
+    userUpdate,
+  };
+  return (
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;

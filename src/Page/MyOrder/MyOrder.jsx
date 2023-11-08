@@ -9,7 +9,7 @@ const MyOrder = () => {
   const url = `https://assingment-11-server-site-iota.vercel.app/order?email=${user.email}`;
 
   useEffect(() => {
-    fetch(url, )
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setorders(data);

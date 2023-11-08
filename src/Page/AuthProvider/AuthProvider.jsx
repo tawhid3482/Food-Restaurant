@@ -45,13 +45,13 @@ const AuthProvider = ({ children }) => {
       setUser(user);
       setLoading(false);
       if(user){
-        axios.post('http://localhost:5000/jwt' , loggedUser, {withCredentials:true})
+        axios.post('https://assingment-11-server-site-iota.vercel.app/jwt' , loggedUser, {withCredentials:true})
         .then(res=> {
             console.log('token response', res.data)
         })
       }
       else{
-        axios.post('http://localhost:5000/logout',loggedUser,{withCredentials:true})
+        axios.post('https://assingment-11-server-site-iota.vercel.app/logout',loggedUser,{withCredentials:true})
         .then(res => {
             console.log(res.data)
         })

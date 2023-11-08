@@ -15,7 +15,7 @@ const FoodService = () => {
   const pages = [...Array(numberofPage).keys()];
   useEffect(() => {
     fetch(
-      `http://localhost:5000/services?page=${currentPage}&size=${itemsPage}`
+      `https://assingment-11-server-site-iota.vercel.app/services?page=${currentPage}&size=${itemsPage}`
     )
       .then((res) => res.json())
       .then((data) => setFoods(data));

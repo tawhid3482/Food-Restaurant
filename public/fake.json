@@ -1,39 +1,52 @@
 [
-    {
-      "foodName": "Margherita Pizza",
-      "foodImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRObNksoK3Cl5hzm-eE4SR11qGVBNGQibUQYA&usqp=CAU",
-      "foodCategory": "Pizza",
-      "price": 12.99
-    },
-    {
-      "foodName": "Grilled Salmon",
-      "foodImage": "https://www.thespruceeats.com/thmb/HgM2h42z1HGEcSWkWk5CgAjDDpQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/how-to-grill-salmon-2216658-hero-01-a9c948f8a238400ebaafc0caf509c7fa.jpg",
-      "foodCategory": "Seafood",
-      "price": 18.75
-    },
-    {
-      "foodName": "Caesar Salad",
-      "foodImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkfFHYdXSlIQ5zIRMnWip1YKzn-4W7S_3AMsIyf3BKRYjDh4_INLT7ngt5ULXNv02kwsQ&usqp=CAU",
-      "foodCategory": "Salad",
-      "price": 8.99
-    },
-    {
-      "foodName": "Beef Burger",
-      "foodImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDhJF0gE9nAMfTKaF4GCS9ToDHxW_GtwPDk_nQw07PI6MCMXN1U9pk2C1stEv2EvkyGM8&usqp=CAU",
-      "foodCategory": "Burger",
-      "price": 10.50
-    },
-    {
-      "foodName": "Pasta Carbonara",
-      "foodImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVkFBVHPi-xwq7nsSdfrtIKaK53ltKW_yhSAOb6_wAOE_WjHhFqnyXB9uKuUerrERW7nU&usqp=CAU",
-      "foodCategory": "Pasta",
-      "price": 14.25
-    },
-    {
-      "foodName": "Chocolate Brownie Sundae",
-      "foodImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ17TEtFfk-hOgEy1LRoz8E7C0IgwKqquFQyxuPgD9eWliMPBZmnqaCdCDySd-x5ycNh1A&usqp=CAU",
-      "foodCategory": "Dessert",
-      "price": 7.99
-    }
-  ]
-  
+  {
+    "id": 1,
+    "img": "https://img.freepik.com/free-photo/plate-chocolate-with-cookies-dry-flowers-around-it-grey_140725-52761.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1696809600&semt=ais",
+    "name": "Gastronomic Delights"
+  },
+  {
+    "id": 2,
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHHyhtAWbxgLobDf2mYIiumBLQdRntqHCNog&usqp=CAU",
+    "name": "Spice Route Fusion"
+  },
+  {
+    "id": 3,
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt24fc32w69qCVNE3TAJ5loiN3S8A5qUK2qj6E9UjgVuKTj4Zvcoak3RU27KVpGkTWCHk&usqp=CAU",
+    "name": "Mediterranean Medley"
+  },
+  {
+    "id": 4,
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcq_eej0B8oAflAB4b6IUQd0B1dbmE3I3OvJPyiCb0coMD7iIu8uhY4JEZMcFeOs8U2wE&usqp=CAU",
+    "name": "Sizzling BBQ Bonanza"
+  },
+  {
+    "id": 5,
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_EeCjPJL58uuEQ2wolIfjA_xlU0FEBeNFaqWZ2YEmmpc0RYntQpno4QV4uR9s340pIOw&usqp=CAU",
+    "name": "Veggie Wonderland"
+  },
+  {
+    "id": 6,
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzjHORGB61hnQ3SSRFr1yPrtykjK-W9jG3E5kb1QGPgvJbcgwl1tEO3Tnq6gNoXIo1cbo&usqp=CAU",
+    "name": "Seafood Sensations"
+  },
+  {
+    "id": 7,
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-hrJ2hrEoSGi0GHYpuYFZf7p3hKpKbLvDoIH73EnJrjN2QlD3Z0AbQcvJF-gSaYDaLBw&usqp=CAU",
+    "name": "Street Food Fiesta"
+  },
+  {
+    "id": 8,
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRujiaQ3DjDdxRawK8COYxiHvdFLvjRldQqH3ccNAfGBJPNgW4wxcu_bNngrQyQubSWgv4&usqp=CAU",
+    "name": "Decadent Dessert Haven"
+  },
+  {
+    "id": 9,
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1lSKj80poqmt5AumCNzRvzNcvsS-6-UvbtKJDXyp8u0p7V12TD8okJx9WZ7Lc5_iHHhI&usqp=CAU",
+    "name": "Sushi Symphony"
+  },
+  {
+    "id": 10,
+    "img": "https://media.istockphoto.com/id/105776876/photo/chef-preparing-meal-in-a-field.jpg?s=612x612&w=0&k=20&c=U_PpQLRF8TB3TBekVpm3CkWI9ZeFmptUX77zip0PpCk=",
+    "name": "Farm-to-Table Elegance"
+  }
+]

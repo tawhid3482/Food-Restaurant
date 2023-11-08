@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useLocation, useParams } from "react-router-dom";
 import FoodDetailsShow from "./FoodDetailsShow";
 import { Helmet } from "react-helmet";
 
@@ -8,10 +8,12 @@ const FoodDetails = () => {
   const products = useLoaderData();
   // console.log(products)
   const { _id } = useParams();
+  // const location = useLocation()
 
   useEffect(() => {
     const findProducts = products?.find((product) => product?._id == _id);
     setProductsDetails(findProducts);
+    // location()
   }, [_id, products]);
 
   return (

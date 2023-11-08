@@ -19,7 +19,7 @@ const MyFoodItemsShow = ({ food }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/servers/${_id}`, {
+        fetch(`https://assingment-11-server-site-iota.vercel.app/servers/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

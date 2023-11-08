@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import UseAuth from "../../Hooks/UseAuth/UseAuth";
 import swal from "sweetalert";
@@ -8,7 +8,8 @@ import { Helmet } from "react-helmet";
 const Login = () => {
   const { loginByemail, loginGoogle } = UseAuth();
   const navigate = useNavigate();
-
+  const location = useLocation();
+ 
   const handlelogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -18,10 +19,9 @@ const Login = () => {
     loginByemail(email, password)
       .then((res) => {
         console.log(res.user);
+        navigate(location?.state ? location.state : '/')
+        // window.location.reload()
         swal("Good job!", "You login succesfuly", "success");
-
-        navigate("/");
-
       })
       .catch((error) => {
         console.log(error.message);
@@ -35,9 +35,9 @@ const Login = () => {
   };
   return (
     <div>
-         <Helmet>
-                <title>Pepper-Login</title>
-            </Helmet>
+      <Helmet>
+        <title>Pepper-Login</title>
+      </Helmet>
       <div className="hero min-h-screen bg-base-200 dark:bg-slate-700 dark:text-slate-100">
         <div className="hero-content  flex-col   lg:flex-row-reverse ">
           <div className="text-center lg:text-left">
@@ -94,7 +94,7 @@ const Login = () => {
                 <p>
                   Are you new here?
                   <Link to="/register" className="text-red-500 ml-1">
-                     Register !
+                    Register !
                   </Link>
                 </p>
               </div>

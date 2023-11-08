@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const MyOrder = () => {
   const [orders, setorders] = useState([]);
   const { user } = UseAuth();
-  const url = `http://localhost:5000/order?email=${user.email}`;
+  const url = `https://assingment-11-server-site-iota.vercel.app/order?email=${user.email}`;
 
   useEffect(() => {
     fetch(url)

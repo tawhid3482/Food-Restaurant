@@ -1,11 +1,16 @@
+import { Helmet } from "react-helmet";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import UseAuth from "../../Hooks/UseAuth/UseAuth";
-import { Helmet } from "react-helmet";
 
-const AddProduct = () => {
-  const {user}=UseAuth()
-  console.log(user)
-  const handleAdd = (e) => {
+const UpdateFood = () => {
+  const products = useLoaderData();
+  const { user } = UseAuth();
+  const navigate = useNavigate();
+  
+  const { _id, foodName, foodCategory, price, quantity, foodOrigin, foodImage } = products;
+
+  const handleUpdate = async (e) => {
     e.preventDefault();
     const form = e.target;
     const foodName = form.foodName.value;
@@ -17,7 +22,7 @@ const AddProduct = () => {
     const foodImage = form.foodImage.value;
     const Email = form.Email.value;
 
-    const newProducts = {
+    const updateProduct = {
       foodName,
       foodCategory,
       price,
@@ -25,45 +30,52 @@ const AddProduct = () => {
       foodOrigin,
       Description,
       foodImage,
-      Email
+      Email,
     };
 
-    console.log(newProducts);
-
-    fetch("https://assingment-11-server-site-iota.vercel.app/services", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newProducts),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-
-        if (data.insertedId) {
-          swal("Successfully", "You Food Addedd", "success");
-          form.reset();
-        } else {
-          swal("error!", "Something wrong", "error");
-        }
+    try {
+      const response = await fetch(`https://assingment-11-server-site-iota.vercel.app/services/${_id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updateProduct),
       });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.modifiedCount > 0) {
+          swal("Success", "Your Product Updated", "success");
+          form.reset();
+          navigate("/myFood");
+        } else {
+          swal("Error", "Something went wrong", "error");
+        }
+      } else {
+        throw new Error("Network response was not ok");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      swal("Error", "Something went wrong", "error");
+    }
   };
 
   return (
     <div className="md:w-3/4 mx-auto">
-        <Helmet>
-                <title>Pepper-Add Food</title>
-            </Helmet>
-      <div className="bg-blue-200  p-5  dark:bg-slate-700 dark:text-slate-300  ">
+      <Helmet>
+        <title>Pepper-Update Food</title>
+      </Helmet>
+      <div className="bg-blue-200 p-5 dark:bg-slate-700 dark:text-slate-300">
         <h2 className="text-5xl font-extrabold text-center mb-3">
-          Add Your Food
+          Update Your Food
         </h2>
         <p className="text-lg text-center mb-3">
-          If you want add any food so fill the information
+          If you want to update any food, fill in the information below.
         </p>
-        <form onSubmit={handleAdd}>
+        <form onSubmit={handleUpdate}>
+          {/* Form fields */}
           <div className="md:flex gap-3 mb-8">
+            {/* Food Name */}
             <div className="form-control md:w-1/2">
               <label className="label">
                 <span className="label-text">Food Name</span>
@@ -73,11 +85,13 @@ const AddProduct = () => {
                   type="text"
                   name="foodName"
                   placeholder="Food Name"
+                  defaultValue={foodName}
                   className="input input-bordered w-full"
                 />
               </label>
             </div>
 
+            {/* Food Category */}
             <div className="form-control md:w-1/2">
               <label className="label">
                 <span className="label-text">Food Category</span>
@@ -87,13 +101,16 @@ const AddProduct = () => {
                   type="text"
                   name="foodCategory"
                   placeholder="Food Category"
+                  defaultValue={foodCategory}
                   className="input input-bordered w-full"
                 />
               </label>
             </div>
           </div>
 
-          <div className="md:flex gap-3 mb-8 ">
+          {/* Price and Quantity */}
+          <div className="md:flex gap-3 mb-8">
+            {/* Price */}
             <div className="form-control md:w-1/2">
               <label className="label">
                 <span className="label-text">Price</span>
@@ -103,11 +120,13 @@ const AddProduct = () => {
                   type="text"
                   name="price"
                   placeholder="Price"
+                  defaultValue={price}
                   className="input input-bordered w-full"
                 />
               </label>
             </div>
 
+            {/* Quantity */}
             <div className="form-control md:w-1/2">
               <label className="label">
                 <span className="label-text">Quantity</span>
@@ -117,41 +136,49 @@ const AddProduct = () => {
                   type="text"
                   name="quantity"
                   placeholder="Quantity"
+                  defaultValue={quantity}
                   className="input input-bordered w-full"
                 />
               </label>
             </div>
           </div>
-          <div className="md:flex gap-3 mb-8 ">
-            <div className="form-control md:w-1/2 ">
+
+          {/* Description and Food Origin */}
+          <div className="md:flex gap-3 mb-8">
+            {/* Description */}
+            <div className="form-control md:w-1/2">
               <label className="label">
                 <span className="label-text">Short Description</span>
               </label>
               <label className="input-group">
-                <input
-                  type="text"
+                <textarea
                   name="Description"
                   placeholder="Description"
-                  defaultValue="Food is a vital aspect of human life, providing nourishment, pleasure, and cultural significance. It encompasses a wide variety of flavors, textures, and aromas, reflecting the rich diversity of cultures and cuisines around the world."
                   className="input input-bordered w-full"
                 />
               </label>
             </div>
-            <div className="form-control md:w-1/2 ">
+
+            {/* Food Origin */}
+            <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text"> Food Origin</span>
+                <span className="label-text">Food Origin</span>
               </label>
               <label className="input-group">
                 <input
                   type="text"
                   name="foodOrigin"
                   placeholder="Food Origin"
+                  defaultValue={foodOrigin}
                   className="input input-bordered w-full"
                 />
               </label>
             </div>
           </div>
-          <div className="md:flex gap-3 mb-8 ">
+
+          {/* Food Image URL and User Email */}
+          <div className="md:flex gap-3 mb-8">
+            {/* Food Image URL */}
             <div className="form-control md:w-1/2">
               <label className="label">
                 <span className="label-text">Food Image URL</span>
@@ -161,16 +188,19 @@ const AddProduct = () => {
                   type="text"
                   name="foodImage"
                   placeholder="Food Image"
+                  defaultValue={foodImage}
                   className="input input-bordered w-full"
                 />
               </label>
             </div>
+
+            {/* User Email */}
             <div className="form-control md:w-1/2">
               <label className="label">
                 <span className="label-text">User Email</span>
               </label>
               <label className="input-group">
-              <input
+                <input
                   type="text"
                   name="Email"
                   placeholder="Buyer Email"
@@ -181,9 +211,11 @@ const AddProduct = () => {
               </label>
             </div>
           </div>
+
+          {/* Submit Button */}
           <input
             type="submit"
-            value="Add Products"
+            value="Update Product"
             className="btn btn-block bg-gray-300"
           />
         </form>
@@ -192,4 +224,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateFood;

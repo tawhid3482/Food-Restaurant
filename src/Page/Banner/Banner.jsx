@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
     return (
       <div>
@@ -16,7 +18,9 @@ const Banner = () => {
                 Welcome to Our  <span className="text-orange-300">Restaurant</span>
               </h1>
               <p className="mb-5  text-white">Restaurant management involves overseeing the daily operations of a restaurant, including menu planning, staff management, customer service, and financial control. Managers ensure smooth functioning, great customer experiences, and profitability. </p>
-              <button className="btn bg-blue-400   dark:bg-slate-700 dark:text-slate-100 text-white"> all menes</button>
+             <Link to='menu'> 
+             <button className="btn bg-blue-400   dark:bg-slate-700 dark:text-slate-100 text-white"> all menes</button>
+             </Link>
             </div>
           </div>
         </div>

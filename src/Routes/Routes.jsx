@@ -15,6 +15,8 @@ import FoodItemsDetails from "../Page/FoodService/FoodItemsDetails";
 import MyOrder from "../Page/MyOrder/MyOrder";
 import Order from "../Page/Order/Order";
 import MyFood from "../Page/MyFood/MyFood";
+import OurMenu from "../Page/OurMenu/OurMenu";
+import UpdateFood from "../Page/UpdateFood/UpdateFood";
 
 const Routes = createBrowserRouter([
   {
@@ -41,30 +43,30 @@ const Routes = createBrowserRouter([
       {
         path: "/foods/_id",
         element: <Food></Food>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://assingment-11-server-site-iota.vercel.app/services"),
       },
       {
         path: "/foodDetails/:_id",
         element: (
-          <PrivateProvider>
+          
             <FoodDetails></FoodDetails>
-          </PrivateProvider>
+         
         ),
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://assingment-11-server-site-iota.vercel.app/services"),
       },
       {
         path: "/FoodServiceDetails/:_id",
         element: (
-          <PrivateProvider>
+         
             <FoodServiceDetails></FoodServiceDetails>
-          </PrivateProvider>
+          
         ),
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://assingment-11-server-site-iota.vercel.app/services"),
       },
       {
         path: "/food",
         element: <FoodService></FoodService>,
-        loader: () => fetch("http://localhost:5000/servicesCount"),
+        loader: () => fetch("https://assingment-11-server-site-iota.vercel.app/servicesCount"),
       },
       {
         path: "/addProduct",
@@ -82,14 +84,14 @@ const Routes = createBrowserRouter([
             <FoodItemsDetails></FoodItemsDetails>
           </PrivateProvider>
         ),
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://assingment-11-server-site-iota.vercel.app/services"),
       },
       {
         path: "/myOrder",
         element: <PrivateProvider>
           <MyOrder></MyOrder>
         </PrivateProvider>,
-        loader: () => fetch("http://localhost:5000/order"),
+        loader: () => fetch("https://assingment-11-server-site-iota.vercel.app/order"),
       },
       {
         path: "/order/:id",
@@ -98,7 +100,7 @@ const Routes = createBrowserRouter([
             <Order></Order>
           </PrivateProvider> 
         ),
-       loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+       loader:({params})=>fetch(`https://assingment-11-server-site-iota.vercel.app/services/${params.id}`)
       },
       {
         path: "/order/:id",
@@ -107,12 +109,22 @@ const Routes = createBrowserRouter([
             <Order></Order>
           </PrivateProvider> 
         ),
-       loader:({params})=>fetch(`http://localhost:5000/service/${params.id}`)
+       loader:({params})=>fetch(`https://assingment-11-server-site-iota.vercel.app/service/${params.id}`)
       },
       {
         path:'/myFood',
         element:<MyFood></MyFood>,
-        loader:()=>fetch('http://localhost:5000/services')
+        loader:()=>fetch('https://assingment-11-server-site-iota.vercel.app/services')
+      },
+      {
+        path:'/menu',
+        element:<OurMenu></OurMenu>,
+        loader:()=>fetch('/fake.json')
+      },
+      {
+        path:'/update/:id',
+        element:<UpdateFood> </UpdateFood>,
+        loader:({params})=>fetch(`https://assingment-11-server-site-iota.vercel.app/services/${params.id}`)
       }
     ],
   },

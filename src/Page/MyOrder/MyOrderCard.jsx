@@ -23,7 +23,7 @@ const MyOrderCard = ({ order }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/order/${_id}`, {
+        fetch(`https://assingment-11-server-site-iota.vercel.app/order/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -101,7 +101,7 @@ export default MyOrderCard;
 //       confirmButtonText: "Yes, delete it!",
 //     }).then((result) => {
 //       if (result.isConfirmed) {
-//         fetch(` http://localhost:5000/order/${_id}`, {
+//         fetch(` https://assingment-11-server-site-iota.vercel.app/order/${_id}`, {
 //           method: "DELETE",
 //         })
 //           .then((res) => res.json())

@@ -8,7 +8,7 @@ const MyFood = () => {
   const [myfoods, setMyFodds] = useState([]);
 
 const {user}=UseAuth()
-const url = `http://localhost:5000/services?email=${user?.email}`
+const url = `https://assingment-11-server-site-iota.vercel.app/services?email=${user?.email}`
 useEffect(() => {
   fetch(url)
     .then((res) => res.json())

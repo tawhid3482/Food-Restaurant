@@ -46,6 +46,11 @@ const Navbar = () => {
           Blog
         </Link>
       </li>
+      <li>
+        <Link to="/contact" className="flex justify-center hover:bg-white">
+          Contact
+        </Link>
+      </li>
       {/* Add more links as needed */}
     </>
   );

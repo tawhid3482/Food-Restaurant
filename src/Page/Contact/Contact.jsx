@@ -35,13 +35,13 @@ const Contact = () => {
             <div className="flex justify-around items-center gap-3">
               <input
                 placeholder="Your Name"
-                className="text-black bg-transparent border border-black rounded-3xl p-3 w-full"
+                className="text-black dark:text-white dark:border-white bg-transparent border border-black rounded-3xl p-3 w-full"
                 type="text"
                 name="from_name"
               />
               <input
                 placeholder="Your Email"
-                className="text-black w-full bg-transparent border-black border rounded-3xl p-3"
+                className="text-black dark:text-white dark:border-white w-full bg-transparent border-black border rounded-3xl p-3"
                 type="email"
                 name="from_email"
               />
@@ -50,12 +50,12 @@ const Contact = () => {
             <br />
             <textarea
               placeholder="Your Message"
-              className=" bg-transparent border-black border rounded-3xl p-8 w-full text-black"
+              className=" bg-transparent border-black border rounded-3xl p-8 w-full text-black dark:text-white dark:border-white"
               name="message"
             />
             <div className="text-center mt-3">
               <input
-                className="btn rounded-3xl bg-transparent uppercase text-black border border-black"
+                className="btn rounded-3xl bg-transparent uppercase text-black dark:text-white dark:border-white border border-black"
                 type="submit"
                 value="send message"
               />

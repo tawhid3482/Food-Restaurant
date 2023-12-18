@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const About = () => {
   return (
     <div>
@@ -16,12 +18,19 @@ const About = () => {
               About Our Restaurant Staff
             </h1>
             <p className="mb-5  text-white">
-            At Pepper, we pride ourselves on crafting exquisite dishes that tantalize taste buds and ignite culinary adventures. Our skilled chefs meticulously select the finest ingredients, transforming them into culinary masterpieces that are as visually stunning as they are delectable. From sizzling steaks and fresh seafood to vibrant vegetarian delights, our menu is a celebration of diverse flavors and global influences.
+              At Pepper, we pride ourselves on crafting exquisite dishes that
+              tantalize taste buds and ignite culinary adventures. Our skilled
+              chefs meticulously select the finest ingredients, transforming
+              them into culinary masterpieces that are as visually stunning as
+              they are delectable. From sizzling steaks and fresh seafood to
+              vibrant vegetarian delights, our menu is a celebration of diverse
+              flavors and global influences.
             </p>
-            {/* <button className="btn bg-blue-400   dark:bg-slate-700 dark:text-slate-100 text-white">
-              {" "}
-              all menes
-            </button> */}
+            <Link to="/contact">
+              <button className="btn bg-blue-400   dark:bg-slate-700 dark:text-slate-100 text-white">
+                Contact us
+              </button>
+            </Link>
           </div>
         </div>
       </div>

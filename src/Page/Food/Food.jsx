@@ -4,6 +4,7 @@ import FoodCart from "./FoodCart";
 
 const Food = () => {
     const [foods] = UseFood()
+    
     const limitedFoods = foods?.slice(0, 6);
     return (
         <div className="m-5">

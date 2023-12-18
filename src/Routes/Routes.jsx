@@ -17,6 +17,7 @@ import Order from "../Page/Order/Order";
 import MyFood from "../Page/MyFood/MyFood";
 import OurMenu from "../Page/OurMenu/OurMenu";
 import UpdateFood from "../Page/UpdateFood/UpdateFood";
+import Contact from "../Page/Contact/Contact";
 
 const Routes = createBrowserRouter([
   {
@@ -125,6 +126,10 @@ const Routes = createBrowserRouter([
         path:'/update/:id',
         element:<UpdateFood> </UpdateFood>,
         loader:({params})=>fetch(`https://assingment-11-server-site-iota.vercel.app/services/${params.id}`)
+      },
+      {
+        path:'/contact',
+        element:<Contact></Contact>
       }
     ],
   },

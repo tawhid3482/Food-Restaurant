@@ -4,8 +4,10 @@ import FoodDetailsShow from "./FoodDetailsShow";
 import { Helmet } from "react-helmet";
 
 const FoodDetails = () => {
+
   const [productsDetails, setProductsDetails] = useState(null);
   const products = useLoaderData();
+  
   // console.log(products)
   const { _id } = useParams();
   // const location = useLocation()

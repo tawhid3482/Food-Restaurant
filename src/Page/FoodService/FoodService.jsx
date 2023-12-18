@@ -9,6 +9,7 @@ const FoodService = () => {
   const [item, setFoods] = useState();
 
   const { count } = useLoaderData();
+
   const [itemsPage, setItemPage] = useState(9);
   const [currentPage, setCurrentPage] = useState(0);
   const numberofPage = Math.ceil(count / itemsPage);
